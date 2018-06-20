@@ -2,7 +2,7 @@ package com.github.actar676309180.danmaku;
 
 import javafx.application.Application;
 
-class DanMaKuEngine {
+public class DanMaKuEngine {
 
     private static boolean isOpen = false;
 
