@@ -3,7 +3,7 @@ package com.github.actar676309180.danmaku.utils;
 import javafx.geometry.Rectangle2D;
 import javafx.stage.Screen;
 
-public class ScreenUtil {
+ public class ScreenUtil {
 
     public final static Double boundWidth;
     public final static Double boundHeight;

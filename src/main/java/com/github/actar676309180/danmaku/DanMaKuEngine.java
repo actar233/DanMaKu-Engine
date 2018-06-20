@@ -11,7 +11,7 @@ class DanMaKuEngine {
     /**
      * 打开弹幕引擎
      */
-    static synchronized void open() {
+    public static synchronized void open() {
         if (!isOpen) {
             new Thread(() -> Application.launch(DanMaKuView.class)).start();
             try {

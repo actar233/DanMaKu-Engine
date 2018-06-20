@@ -13,7 +13,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
-public class DanMaKuView extends Application implements Runnable {
+class DanMaKuView extends Application implements Runnable {
 
     private Lock lock = new ReentrantLock();
 

@@ -7,7 +7,7 @@ import javafx.scene.text.Text;
 import java.util.Random;
 
 
-public class Bullet extends VBox {
+class Bullet extends VBox {
 
     private static Random random = new Random();
 
