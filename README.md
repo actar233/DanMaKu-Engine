@@ -18,7 +18,7 @@
     DanMaKuEngine.launch(danMaKu)
 ```
 
-本项目基于JavaFX,需要jdk1.8及以上
+本项目基于JavaFX,需要jdk1.8及以上  
 如果使用的是openjdk,则需要引入openjfx
 
 ```
