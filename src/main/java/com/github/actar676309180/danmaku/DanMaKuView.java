@@ -14,22 +14,25 @@ import java.util.List;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
+/**
+ *
+ */
 public class DanMaKuView extends Application implements Runnable {
 
-    private Lock lock = new ReentrantLock();
+    private final Lock lock = new ReentrantLock();
 
-    private StackPane root = new StackPane();
-    private List<Bullet> readyList = new ArrayList<>();
-    private List<Bullet> loopList = new ArrayList<>();
+    private final StackPane root = new StackPane();
+    private final List<Bullet> readyList = new ArrayList<>();
+    private final List<Bullet> loopList = new ArrayList<>();
 
     @Override
     public void start(Stage primaryStage) {
         DanMaKuEngine.danMaKudanMaKuView = this;
 
-        double width = ScreenUtil.visualBoundWidth;
-        double height = ScreenUtil.visualBoundHeight;
+        final double width = ScreenUtil.visualBoundWidth;
+        final double height = ScreenUtil.visualBoundHeight;
 
-        Scene scene = new Scene(root, width, height);
+        final Scene scene = new Scene(root, width, height);
 
         scene.setFill(null);
 
