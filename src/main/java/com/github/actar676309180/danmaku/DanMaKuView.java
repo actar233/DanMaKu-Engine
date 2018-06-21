@@ -8,8 +8,9 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
-import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -18,9 +19,8 @@ public class DanMaKuView extends Application implements Runnable {
     private Lock lock = new ReentrantLock();
 
     private StackPane root = new StackPane();
-    private List<Bullet> readyList = new CopyOnWriteArrayList<>();
-    private List<Bullet> loopList = new CopyOnWriteArrayList<>();
-    private List<Bullet> destroyList = new CopyOnWriteArrayList<>();
+    private List<Bullet> readyList = new ArrayList<>();
+    private List<Bullet> loopList = new ArrayList<>();
 
     @Override
     public void start(Stage primaryStage) {
@@ -64,25 +64,21 @@ public class DanMaKuView extends Application implements Runnable {
     }
 
     private void loop() {
-        for (Bullet bullet : loopList) {
+        final Iterator<Bullet> iterator = loopList.iterator();
+        while (iterator.hasNext()) {
+            Bullet bullet = iterator.next();
             Platform.runLater(()->{
                 bullet.setTranslateX(bullet.getTranslateX()-1);
             });
             if (bullet.getTranslateX() <  0){
-                destroyList.add(bullet);
+                Platform.runLater(()->{
+                    root.getChildren().remove(bullet);
+                });
+                iterator.remove();
             }
         }
     }
 
-    private void destroy() {
-        for (Bullet bullet : destroyList) {
-            loopList.remove(bullet);
-            Platform.runLater(()->{
-                root.getChildren().remove(bullet);
-            });
-        }
-        destroyList.clear();
-    }
 
     @Override
     public void run() {
@@ -90,7 +86,6 @@ public class DanMaKuView extends Application implements Runnable {
             try { Thread.sleep(10); } catch (InterruptedException e) {e.printStackTrace();}
             ready();
             loop();
-            destroy();
         }
     }
 

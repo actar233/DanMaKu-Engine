@@ -1,6 +1,7 @@
 package com.github.actar676309180.danmaku;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 
 public class DanMaKuEngine {
 
@@ -33,6 +34,25 @@ public class DanMaKuEngine {
     public static void launch(DanMaKu danMaKu) {
         if (isOpen) {
             danMaKudanMaKuView.launch(danMaKu);
+        } else {
+            throw new RuntimeException("未初始化,无法发射弹幕");
+        }
+    }
+
+    /**
+     * 关闭
+     */
+    public static void close() {
+        if (isOpen) {
+            Platform.runLater(() -> {
+                try {
+                    danMaKudanMaKuView.stop();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            });
+            danMaKudanMaKuView = null;
+            isOpen = false;
         } else {
             throw new RuntimeException("未初始化,无法发射弹幕");
         }
