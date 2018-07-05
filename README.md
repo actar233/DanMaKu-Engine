@@ -13,21 +13,21 @@
 2. 在你的项目中引入jar文件
 3.
 ```
-    DanMaKuEngine.open()
-    val danMaKu = DanMaKu("This is a Test.", Font.font(22.0), Color.GREEN)
-    DanMaKuEngine.launch(danMaKu)
+    DanMaKuEngine.open();
+    DanMaKu danMaKu = new DanMaKu("This is a Test.", Font.font(22.0), Color.GREEN);
+    DanMaKuEngine.launch(danMaKu);
 ```
 
 本项目基于JavaFX,需要jdk1.8及以上  
 如果使用的是openjdk,则需要引入openjfx
 
 ```
-DanMaKuEngine.open()
+DanMaKuEngine.open();
 ```
 用于打开一个窗口,此方法是阻塞的.耗时2-3秒.
 
 ```
-DanMaKu("This is a Test.", Font.font(22.0), Color.GREEN)
+new DanMaKu("This is a Test.", Font.font(22.0), Color.GREEN)
 ```
 用于创建一个弹幕 DanMaKu("消息",字体,颜色)
 
