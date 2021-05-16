@@ -1,4 +1,4 @@
-package com.github.actar676309180.danmaku;
+package com.github.actar233.danmaku;
 
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;

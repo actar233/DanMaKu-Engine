@@ -1,4 +1,4 @@
-package com.github.actar676309180.danmaku.utils;
+package com.github.actar233.danmaku.utils;
 
 import javafx.geometry.Rectangle2D;
 import javafx.stage.Screen;

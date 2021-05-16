@@ -1,6 +1,6 @@
-package com.github.actar676309180.danmaku;
+package com.github.actar233.danmaku;
 
-import com.github.actar676309180.danmaku.utils.ScreenUtil;
+import com.github.actar233.danmaku.utils.ScreenUtil;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.scene.Scene;
